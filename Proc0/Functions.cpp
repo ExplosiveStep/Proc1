@@ -97,13 +97,13 @@ transport* In(ifstream& ifst)
 // Ввод параметров грузовика из файла
 void In(truck& t, ifstream& ifst)
 {
-    ifst >> t.cargo >> t.engine;
+    ifst >> t.cargo >> t.engine >> t.fuel_tank;
 }
 
 // Ввод параметров автобуса из файла
 void In(bus& b, ifstream& ifst) {
 
-    ifst >> b.capacity >> b.engine;
+    ifst >> b.capacity >> b.engine >> b.fuel_tank;
 }
 
 // Вывод параметров в файл
@@ -138,10 +138,10 @@ void Out(transport* s, ofstream& ofst) {
 // Вывод параметров грузовикав файл
 void Out(truck& t, ofstream& ofst)
 {
-    ofst << "It is Truck: cargo = " << t.cargo << ", engine = " << t.engine << endl;
+    ofst << "It is Truck: cargo = " << t.cargo << ", engine = " << t.engine << ", fuel_tank = " << t.fuel_tank << endl;
 }
 
 // Вывод параметров автобуса файл
 void Out(bus& b, ofstream& ofst) {
-    ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << endl;
+    ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << ", fuel_tank = " << b.fuel_tank << endl;
 }

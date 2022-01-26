@@ -9,12 +9,14 @@ using namespace std;
 struct truck {
 	int cargo;//Грузоподъемность
 	int engine;//Мощность двигателя
+	int fuel_tank;//Объем топливного бака
 };
 
 //Автобус
 struct bus {
 	short int capacity;//Пассажировместимость
 	int engine;//Мощность двигателя
+	int fuel_tank;//Объем топливного бака
 };
 
 //Обобщение
