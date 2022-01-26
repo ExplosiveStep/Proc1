@@ -145,3 +145,13 @@ void Out(truck& t, ofstream& ofst)
 void Out(bus& b, ofstream& ofst) {
     ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << endl;
 }
+
+double gas_mil(truck& t)
+{
+    return t.engine / 25;
+}
+
+double gas_mil(bus& b)
+{
+    return b.engine / 25;
+}
