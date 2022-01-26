@@ -1,6 +1,6 @@
 Filled container. 
 Container contains 3 elements.
-0: It is Truck: cargo = 1400, engine = 130
+0: It is Truck: cargo = 1300, engine = 300
 1: It is bus: capacity = 40, engine = 140
-2: It is Truck: cargo = 1300, engine = 300
+2: It is Truck: cargo = 1400, engine = 130
 Empty container. 

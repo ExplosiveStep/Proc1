@@ -59,4 +59,6 @@ void Out(bus& b, ofstream& ofst);
 
 double gas_mil(transport* s);
 
+void Sort(container* head);
+
 #endif
