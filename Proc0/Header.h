@@ -57,4 +57,6 @@ void Out(truck& t, ofstream& ofst);
 
 void Out(bus& b, ofstream& ofst);
 
+void Limited_out(container* head, ofstream& ofst);
+
 #endif

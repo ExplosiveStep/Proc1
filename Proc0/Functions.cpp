@@ -1,6 +1,8 @@
 #include "Header.h"
 #include <fstream>
 
+#define KEY 0
+
 // Инициализация контейнера
 void Init(container* head, container* tail) {
     head->len = tail->len = 0;
@@ -144,4 +146,21 @@ void Out(truck& t, ofstream& ofst)
 // Вывод параметров автобуса файл
 void Out(bus& b, ofstream& ofst) {
     ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << endl;
+}
+
+void Limited_out(container* head, ofstream& ofst)
+{
+    int len = head->len;
+    container* temp = head;
+
+    for (int i = 0; i < len; i++)
+    {
+        if ((temp->cont->k == KEY) && (temp->cont->k == 0)) {
+            Out(temp->cont->t, ofst);
+        }
+        if ((temp->cont->k == KEY) && (temp->cont->k == 1)) {
+            Out(temp->cont->b, ofst);
+        }
+        temp = temp->next;
+    }
 }

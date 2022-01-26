@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
 	int len = head->len;//Количество элементов в контейнере
 	ofst << "Filled container. " << endl;
 	Out(head, ofst);//Вывод параметров транспорта в файл
+	//Limited_out(head, ofst);
 	Clear(head);//Очистка контейнера
 	ofst << "Empty container. " << endl;
 	cout << "Stop" << endl;
