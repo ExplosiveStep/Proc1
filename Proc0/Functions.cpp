@@ -89,6 +89,11 @@ transport* In(ifstream& ifst)
         sp->k = transport::key::BUS;
         In(sp->b, ifst);
         return sp;
+    case 3:
+        sp = new transport;
+        sp->k = transport::key::PASSENGER_CAR;
+        In(sp->p, ifst);
+        return sp;
     default:
         return 0;
     }
@@ -104,6 +109,11 @@ void In(truck& t, ifstream& ifst)
 void In(bus& b, ifstream& ifst) {
 
     ifst >> b.capacity >> b.engine;
+}
+
+void In(passenger_car& p, ifstream& ifst) {
+
+    ifst >> p.max_speed >> p.engine;
 }
 
 // Вывод параметров в файл
@@ -130,6 +140,9 @@ void Out(transport* s, ofstream& ofst) {
     case transport::key::TRUCK:
         Out(s->t, ofst);
         break;
+    case transport::key::PASSENGER_CAR:
+        Out(s->p, ofst);
+        break;
     default:
         ofst << "Incorrect transport!" << endl;
     }
@@ -138,10 +151,14 @@ void Out(transport* s, ofstream& ofst) {
 // Вывод параметров грузовикав файл
 void Out(truck& t, ofstream& ofst)
 {
-    ofst << "It is Truck: cargo = " << t.cargo << ", engine = " << t.engine << endl;
+    ofst << "It is truck: cargo = " << t.cargo << ", engine = " << t.engine << endl;
 }
 
 // Вывод параметров автобуса файл
 void Out(bus& b, ofstream& ofst) {
     ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << endl;
+}
+
+void Out(passenger_car& p, ofstream& ofst) {
+    ofst << "It is passenger car: max_speed = " << p.max_speed << ", engine = " << p.engine << endl;
 }
