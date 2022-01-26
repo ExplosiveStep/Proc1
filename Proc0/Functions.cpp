@@ -146,12 +146,15 @@ void Out(bus& b, ofstream& ofst) {
     ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << endl;
 }
 
-double gas_mil(truck& t)
+double gas_mil(transport* s)
 {
-    return t.engine / 25;
-}
-
-double gas_mil(bus& b)
-{
-    return b.engine / 25;
+    switch (s->k)
+    {
+    case 0:
+        return s->t.engine / 25;
+        break;
+    case 1:
+        return s->b.engine / 25;
+        break;
+    }
 }
