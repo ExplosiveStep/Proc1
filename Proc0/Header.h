@@ -57,6 +57,6 @@ void Out(truck& t, ofstream& ofst);
 
 void Out(bus& b, ofstream& ofst);
 
-double gas_mil(transport*);
+double gas_mil(transport* s);
 
 #endif
