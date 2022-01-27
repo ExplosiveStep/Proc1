@@ -1,7 +1,7 @@
 #include "Header.h"
 #include <fstream>
 
-#define KEY 0
+#define KEY 0//Выбор ТС для лимитированного вывыда [0..2]
 
 // Инициализация контейнера
 void Init(container* head, container* tail) {
@@ -114,6 +114,7 @@ void In(bus& b, ifstream& ifst) {
     ifst >> b.capacity >> b.engine >> b.fuel_tank;
 }
 
+//Ввод параметров легкового автомобиля из файла
 void In(passenger_car& p, ifstream& ifst) {
 
     ifst >> p.max_speed >> p.engine >> p.fuel_tank;
@@ -152,22 +153,23 @@ void Out(transport* s, ofstream& ofst) {
     }
 }
 
-// Вывод параметров грузовикав файл
+// Вывод параметров грузовика в файл
 void Out(truck& t, ofstream& ofst)
 {
     ofst << "It is truck: cargo = " << t.cargo << ", engine = " << t.engine << ", fuel_tank = " << t.fuel_tank << endl;
 }
 
-// Вывод параметров автобуса файл
+// Вывод параметров автобуса в файл
 void Out(bus& b, ofstream& ofst) {
     ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << ", fuel_tank = " << b.fuel_tank << endl;
 }
  
-
+// Вывод параметров легкового автомобиля в файл
 void Out(passenger_car& p, ofstream& ofst) {
     ofst << "It is passenger car: max_speed = " << p.max_speed << ", engine = " << p.engine << ", fuel_tank = " << p.fuel_tank << endl;
 }
 
+//Функция возвращающая параметр, на основе которого производится сортировка
 double gas_mil(transport* s)
 {
     switch (s->k)
@@ -187,6 +189,7 @@ double gas_mil(transport* s)
     }
 }
 
+//Сортировка
 void Sort(container* head)
 {
     if ((head->len) > 1)
@@ -214,6 +217,7 @@ void Sort(container* head)
     }
 }
 
+//Ограниченный вывод ТС
 void Limited_out(container* head, ofstream& ofst)
 {
     int len = head->len;
