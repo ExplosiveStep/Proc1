@@ -23,6 +23,7 @@ int main(int argc, char* argv[]) {
 	ofst << "Filled container. " << endl;
 	Sort(head);
 	Out(head, ofst);//Вывод параметров транспорта в файл
+	//Limited_out(head, ofst);
 	Clear(head);//Очистка контейнера
 	ofst << "Empty container. " << endl;
 	cout << "Stop" << endl;
