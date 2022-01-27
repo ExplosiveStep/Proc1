@@ -22,6 +22,7 @@ struct bus {
 struct passenger_car {
 	int max_speed;//Максимальная скорость
 	int engine;//Мощность двигателя
+	int fuel_tank;//Объем топливного бака
 };
 
 //Обобщение
