@@ -179,3 +179,30 @@ double gas_mil(transport* s)
         exit(1);
     }
 }
+
+void Sort(container* head)
+{
+    if ((head->len) > 1)
+    {
+        container* First = head;
+        container* Second = head->next;
+        container* Temp = new container;
+        int len = head->len;
+
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = 0; j < len - i - 1; j++) {
+                if (gas_mil(First->cont) < gas_mil(Second->cont)) {
+                    Temp->cont = First->cont;
+                    First->cont = Second->cont;
+                    Second->cont = Temp->cont;
+                }
+
+                Second = Second->next;
+            }
+
+            First = First->next;
+            Second = First->next;
+        }
+        delete Temp;
+    }
+}

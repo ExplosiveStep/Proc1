@@ -72,4 +72,6 @@ void Out(passenger_car& p, ofstream& ofst);
 
 double gas_mil(transport* s);
 
+void Sort(container* head);
+
 #endif

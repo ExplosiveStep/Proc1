@@ -21,6 +21,7 @@ int main(int argc, char* argv[]) {
 	In(head, tail, ifst);//Ввод содержимого контейнера из указанного потока
 	int len = head->len;//Количество элементов в контейнере
 	ofst << "Filled container. " << endl;
+	Sort(head);
 	Out(head, ofst);//Вывод параметров транспорта в файл
 	Clear(head);//Очистка контейнера
 	ofst << "Empty container. " << endl;
