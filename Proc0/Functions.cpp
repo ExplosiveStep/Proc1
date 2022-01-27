@@ -97,7 +97,8 @@ transport* In(ifstream& ifst)
         In(sp->p, ifst);
         return sp;
     default:
-        return 0;
+        cout << "Incorrect transport!" << endl;
+        exit(1);
     }
 }
 
@@ -146,7 +147,8 @@ void Out(transport* s, ofstream& ofst) {
         Out(s->p, ofst);
         break;
     default:
-        ofst << "Incorrect transport!" << endl;
+        cout << "Incorrect transport!" << endl;
+        exit(1);
     }
 }
 
@@ -224,6 +226,9 @@ void Limited_out(container* head, ofstream& ofst)
         }
         if ((temp->cont->k == KEY) && (temp->cont->k == 1)) {
             Out(temp->cont->b, ofst);
+        }
+        if ((temp->cont->k == KEY) && (temp->cont->k == 2)) {
+            Out(temp->cont->p, ofst);
         }
         temp = temp->next;
     }
