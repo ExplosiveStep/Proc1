@@ -176,6 +176,9 @@ double gas_mil(transport* s)
     case 1:
         return s->b.engine / 25;
         break;
+    case 2:
+        return s->p.engine / 25;
+        break;
     default:
         cout << "Incorrect transport!" << endl;
         exit(1);
