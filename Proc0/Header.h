@@ -70,4 +70,6 @@ void Out(bus& b, ofstream& ofst);
 
 void Out(passenger_car& p, ofstream& ofst);
 
+double gas_mil(transport* s);
+
 #endif

@@ -163,3 +163,21 @@ void Out(bus& b, ofstream& ofst) {
 void Out(passenger_car& p, ofstream& ofst) {
     ofst << "It is passenger car: max_speed = " << p.max_speed << ", engine = " << p.engine << ", fuel_tank = " << p.fuel_tank << endl;
 }
+    ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << endl;
+}
+
+double gas_mil(transport* s)
+{
+    switch (s->k)
+    {
+    case 0:
+        return s->t.engine / 25;
+        break;
+    case 1:
+        return s->b.engine / 25;
+        break;
+    default:
+        cout << "Incorrect transport!" << endl;
+        exit(1);
+    }
+}
