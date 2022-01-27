@@ -1,7 +1,7 @@
 #include "Header.h"
 #include <fstream>
 
-#define KEY 0//Выбор ТС для лимитированного вывыда [0..2]
+#define KEY 0// Выбор ТС для лимитированного вывыда [0..2]
 
 // Инициализация контейнера
 void Init(container* head, container* tail) {
@@ -11,17 +11,17 @@ void Init(container* head, container* tail) {
     head->prev = tail->prev = NULL;
 }
 
-//Очистка контейнера от элементов
+// Очистка контейнера от элементов
 void Clear(container* head) {
 
     int len = head->len;
     container* temp = head;
-    for (int i = 0; i < len; i++) {//Очистка транспорта
+    for (int i = 0; i < len; i++) {// Очистка транспорта
         delete temp->cont;
         temp->len = 0;
         temp = temp->next;
     }
-    for (int i = 0; i < len; i++) {//Очистка контейнеров
+    for (int i = 0; i < len; i++) {// Очистка контейнеров
 
         temp = head->next;
         delete head;
@@ -36,13 +36,13 @@ void In(container* head, container* tail, ifstream& ifst) {
     while (!ifst.eof()) {
         switch (Len)
         {
-        case 0://Для 1-го элемента
+        case 0:// Для 1-го элемента
             if ((head->cont = In(ifst))) {
                 Len++;
             }
             break;
 
-        case 1://Для 2-ух элементов
+        case 1:// Для 2-ух элементов
             if ((tail->cont = In(ifst))) {
                 head->next = tail;
                 head->prev = tail;
@@ -52,7 +52,7 @@ void In(container* head, container* tail, ifstream& ifst) {
             }
             break;
 
-        default://Для более 2-ух элементов
+        default:// Для более 2-ух элементов
             temp = new container;
             temp->next = NULL;
             temp->prev = NULL;
@@ -67,7 +67,7 @@ void In(container* head, container* tail, ifstream& ifst) {
             break;
         }
         temp = head;
-        for (int i = 0; i < Len; i++) {//Обновление значения "len" в каждом контейнере
+        for (int i = 0; i < Len; i++) {// Обновление значения "len" в каждом контейнере
             temp->len = Len;
             temp = temp->next;
         }
@@ -114,7 +114,7 @@ void In(bus& b, ifstream& ifst) {
     ifst >> b.capacity >> b.engine >> b.fuel_tank;
 }
 
-//Ввод параметров легкового автомобиля из файла
+// Ввод параметров легкового автомобиля из файла
 void In(passenger_car& p, ifstream& ifst) {
 
     ifst >> p.max_speed >> p.engine >> p.fuel_tank;
@@ -169,19 +169,19 @@ void Out(passenger_car& p, ofstream& ofst) {
     ofst << "It is passenger car: max_speed = " << p.max_speed << ", engine = " << p.engine << ", fuel_tank = " << p.fuel_tank << endl;
 }
 
-//Функция возвращающая параметр, на основе которого производится сортировка
+// Функция возвращающая параметр, на основе которого производится сортировка
 double gas_mil(transport* s)
 {
     switch (s->k)
     {
     case 0:
-        return s->t.engine / 25;
+        return s->t.engine * 2;
         break;
     case 1:
-        return s->b.engine / 25;
+        return s->b.engine * 2;
         break;
     case 2:
-        return s->p.engine / 25;
+        return s->p.engine * 2;
         break;
     default:
         cout << "Incorrect transport!" << endl;
@@ -189,7 +189,7 @@ double gas_mil(transport* s)
     }
 }
 
-//Сортировка
+// Сортировка
 void Sort(container* head)
 {
     if ((head->len) > 1)
@@ -217,7 +217,7 @@ void Sort(container* head)
     }
 }
 
-//Ограниченный вывод ТС
+// Ограниченный вывод ТС
 void Limited_out(container* head, ofstream& ofst)
 {
     int len = head->len;

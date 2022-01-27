@@ -5,27 +5,27 @@
 
 using namespace std;
 
-//Грузовик
+// Грузовик
 struct truck {
-	int cargo;//Грузоподъемность
-	int engine;//Мощность двигателя
-	int fuel_tank;//Объем топливного бака
+	int cargo;// Грузоподъемность
+	int engine;// Мощность двигателя
+	int fuel_tank;// Объем топливного бака
 };
 
-//Автобус
+// Автобус
 struct bus {
-	short int capacity;//Пассажировместимость
-	int engine;//Мощность двигателя
-	int fuel_tank;//Объем топливного бака
+	short int capacity;// Пассажировместимость
+	int engine;// Мощность двигателя
+	int fuel_tank;// Объем топливного бака
 };
 
 struct passenger_car {
-	int max_speed;//Максимальная скорость
-	int engine;//Мощность двигателя
-	int fuel_tank;//Объем топливного бака
+	int max_speed;// Максимальная скорость
+	int engine;// Мощность двигателя
+	int fuel_tank;// Объем топливного бака
 };
 
-//Обобщение
+// Обобщение
 struct transport {
 
 	enum key { TRUCK, BUS, PASSENGER_CAR };
@@ -37,7 +37,7 @@ struct transport {
 	};
 };
 
-//Контейнер
+// Контейнер
 struct container
 {
 	int len;
