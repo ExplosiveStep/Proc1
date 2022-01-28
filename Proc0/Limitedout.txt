@@ -1,0 +1,1 @@
+It is truck: cargo = 1400, engine = 120, fuel_tank = 50

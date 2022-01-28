@@ -1,0 +1,1 @@
+It is bus: capacity = 30, engine = 150, fuel_tank = 50

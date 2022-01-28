@@ -1,0 +1,4 @@
+Container contains 3 elements.
+0: It is truck: cargo = 1400, engine = 120, fuel_tank = 50
+1: It is bus: capacity = 30, engine = 130, fuel_tank = 60
+2: It is passenger car: max_speed = 200, engine = 150, fuel_tank = 45

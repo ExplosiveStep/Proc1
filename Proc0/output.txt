@@ -1,4 +1,7 @@
 Filled container. 
-It is truck: cargo = 1300, engine = 300, fuel_tank = 50
-It is truck: cargo = 1400, engine = 200, fuel_tank = 30
+Container contains 4 elements.
+0: It is passenger car: max_speed = 240, engine = 350, fuel_tank = 50
+1: It is truck: cargo = 1300, engine = 300, fuel_tank = 50
+2: It is truck: cargo = 1400, engine = 200, fuel_tank = 30
+3: It is bus: capacity = 40, engine = 140, fuel_tank = 40
 Empty container. 
