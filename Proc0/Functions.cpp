@@ -281,21 +281,24 @@ void Out(transport* s, ofstream& ofst) {
 // Вывод параметров грузовика в файл
 void Out(truck& t, ofstream& ofst)
 {
-    ofst << "It is truck: cargo = " << t.cargo << ", engine = " << t.engine << ", fuel_tank = " << t.fuel_tank << endl;
+    ofst << "It is truck: cargo = " << t.cargo << ", engine = "
+        << t.engine << ", fuel_tank = " << t.fuel_tank << endl;
 }
 
 // Вывод параметров автобуса в файл
 void Out(bus& b, ofstream& ofst) {
-    ofst << "It is bus: capacity = " << b.capacity << ", engine = " << b.engine << ", fuel_tank = " << b.fuel_tank << endl;
+    ofst << "It is bus: capacity = " << b.capacity << ", engine = "
+        << b.engine << ", fuel_tank = " << b.fuel_tank << endl;
 }
  
 // Вывод параметров легкового автомобиля в файл
 void Out(passenger_car& p, ofstream& ofst) {
-    ofst << "It is passenger car: max_speed = " << p.max_speed << ", engine = " << p.engine << ", fuel_tank = " << p.fuel_tank << endl;
+    ofst << "It is passenger car: max_speed = " << p.max_speed << ", engine = "
+        << p.engine << ", fuel_tank = " << p.fuel_tank << endl;
 }
 
 // Функция возвращающая параметр, на основе которого производится сортировка
-double gas_mil(transport* s)
+double Gas_mil(transport* s)
 {
     switch (s->k)
     {
@@ -327,7 +330,7 @@ void Sort(container* head)
 
         for (int i = 0; i < len - 1; i++) {
             for (int j = 0; j < len - i - 1; j++) {
-                if (gas_mil(First->cont) < gas_mil(Second->cont)) {
+                if (Gas_mil(First->cont) < Gas_mil(Second->cont)) {
                     Temp->cont = First->cont;
                     First->cont = Second->cont;
                     Second->cont = Temp->cont;
