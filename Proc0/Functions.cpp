@@ -14,7 +14,6 @@ void Init(container* head, container* tail) {
 
 // Очистка контейнера от элементов
 void Clear(container* head) {
-
     int len = head->len;
     container* temp = head;
     for (int i = 0; i < len; i++) {// Очистка транспорта
@@ -23,7 +22,6 @@ void Clear(container* head) {
         temp = temp->next;
     }
     for (int i = 0; i < len; i++) {// Очистка контейнеров
-
         temp = head->next;
         delete head;
         head = temp;
@@ -65,10 +63,7 @@ void In(container* head, container* tail, ifstream& ifst) {
                 tail = temp;
                 Len++;
             }
-            else
-            {
-                delete temp;
-            }
+            else { delete temp; }
             break;
         }
         temp = head;
@@ -83,10 +78,8 @@ void In(container* head, container* tail, ifstream& ifst) {
 transport* In(ifstream& ifst)
 {
     transport* sp;
-
     string str = "";
     getline(ifst, str);
-
     if ((str != "1") && (str != "2") && (str != "3")) {// Если символ не 1,2,3
         if (ifst.peek() == EOF) {// Если конец файла
             return 0;
@@ -98,7 +91,8 @@ transport* In(ifstream& ifst)
         }
     }
     int k = atoi(str.c_str());
-    switch (k) {
+    switch (k)
+    {
     case 1:
         sp = new transport;
         sp->k = transport::key::TRUCK;
@@ -127,10 +121,8 @@ void In(truck& t, ifstream& ifst)
     string str = "";
     string numbers = "0123456789";
     int flag = 0;// Вспомогательная переменная/количество циклов
-    while (flag != 3)
-    {
+    while (flag != 3) {
         getline(ifst, str);
-
         if (str == "") {// Если пустая строка
             cout << "Input data is incomplete!";
             system("pause");
@@ -142,6 +134,7 @@ void In(truck& t, ifstream& ifst)
             exit(1);
         }
         for (int i = 0; i < str.length(); i++) {// Если в строке есть символы помимо цифр
+            
             if (numbers.find(str[i]) == -1) {
                 cout << "Input data is incorrect!";
                 system("pause");
@@ -166,14 +159,12 @@ void In(truck& t, ifstream& ifst)
 
 // Ввод параметров автобуса из файла
 void In(bus& b, ifstream& ifst) {
-
     string str = "";
     string numbers = "0123456789";
     int flag = 0;// Вспомогательная переменная/количество циклов
     while (flag != 3)
     {
         getline(ifst, str);
-
         if (str == "") {// Если пустая строка
             cout << "Input data is incomplete!";
             exit(1);
@@ -183,6 +174,7 @@ void In(bus& b, ifstream& ifst) {
             exit(1);
         }
         for (int i = 0; i < str.length(); i++) {// Если в строке есть символы помимо цифр
+            
             if (numbers.find(str[i]) == -1) {
                 cout << "Input data is incorrect!";
                 exit(1);
@@ -206,14 +198,12 @@ void In(bus& b, ifstream& ifst) {
 
 // Ввод параметров легкового автомобиля из файла
 void In(passenger_car& p, ifstream& ifst) {
-
     string str = "";
     string numbers = "0123456789";
     int flag = 0;// Вспомогательная переменная/количество циклов
     while (flag != 3)
     {
         getline(ifst, str);
-
         if (str == "") {// Если пустая строка
             cout << "Input data is incomplete!";
             exit(1);
@@ -223,6 +213,7 @@ void In(passenger_car& p, ifstream& ifst) {
             exit(1);
         }
         for (int i = 0; i < str.length(); i++) {// Если в строке есть символы помимо цифр
+            
             if (numbers.find(str[i]) == -1) {
                 cout << "Input data is incorrect!";
                 exit(1);
@@ -246,7 +237,6 @@ void In(passenger_car& p, ifstream& ifst) {
 
 // Вывод параметров в файл
 void Out(container* head, ofstream& ofst) {
-
     container* temp = head;
     int len = temp->len;
     ofst << "Container contains " << head->len
@@ -260,8 +250,8 @@ void Out(container* head, ofstream& ofst) {
 
 // Вывод параметров текущего транспорта в поток
 void Out(transport* s, ofstream& ofst) {
-
-    switch (s->k) {
+    switch (s->k)
+    {
     case transport::key::BUS:
         Out(s->b, ofst);
         break;
@@ -321,15 +311,15 @@ double Gas_mil(transport* s)
 // Сортировка
 void Sort(container* head)
 {
-    if ((head->len) > 1)
-    {
+    if ((head->len) > 1) {
         container* First = head;
         container* Second = head->next;
         container* Temp = new container;
         int len = head->len;
-
         for (int i = 0; i < len - 1; i++) {
+
             for (int j = 0; j < len - i - 1; j++) {
+
                 if (Gas_mil(First->cont) < Gas_mil(Second->cont)) {
                     Temp->cont = First->cont;
                     First->cont = Second->cont;
@@ -338,7 +328,6 @@ void Sort(container* head)
 
                 Second = Second->next;
             }
-
             First = First->next;
             Second = First->next;
         }
@@ -351,15 +340,16 @@ void Limited_out(container* head, ofstream& ofst)
 {
     int len = head->len;
     container* temp = head;
-
     for (int i = 0; i < len; i++)
     {
         if ((temp->cont->k == KEY) && (temp->cont->k == 0)) {
             Out(temp->cont->t, ofst);
         }
+
         if ((temp->cont->k == KEY) && (temp->cont->k == 1)) {
             Out(temp->cont->b, ofst);
         }
+
         if ((temp->cont->k == KEY) && (temp->cont->k == 2)) {
             Out(temp->cont->p, ofst);
         }
