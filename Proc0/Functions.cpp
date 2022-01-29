@@ -356,3 +356,73 @@ void Limited_out(container* head, ofstream& ofst)
         temp = temp->next;
     }
 }
+
+// Ìףכüעטלועמה
+void MultiMethod(container* head, ofstream& ofst) {
+
+    container* First = head;
+    container* Second = head->next;
+    int len = head->len;
+
+    for (int i = 0; i < len - 1; i++) {
+        for (int j = i + 1; j < len; j++) {
+            switch (First->cont->k) {
+            case transport::TRUCK:
+                switch (Second->cont->k)
+                {
+                case transport::TRUCK:
+                    ofst << endl << "Truck and Truck." << endl;
+                    break;
+                case  transport::BUS:
+                    ofst << endl << "Truck and Bus." << endl;
+                    break;
+                case  transport::PASSENGER_CAR:
+                    ofst << endl << "Truck and Passenger_car." << endl;
+                    break;
+                default:
+                    ofst << endl << "Unknown type" << endl;
+                }
+                break;
+            case transport::BUS:
+                switch (Second->cont->k)
+                {
+                case transport::TRUCK:
+                    ofst << endl << "Bus and Truck." << endl;
+                    break;
+                case transport::BUS:
+                    ofst << endl << "Bus and Bus." << endl;
+                    break;
+                case  transport::PASSENGER_CAR:
+                    ofst << endl << "Bus and Passenger_car." << endl;
+                    break;
+                default:
+                    ofst << endl << "Unknown type" << endl;
+                }
+                break;
+            case transport::PASSENGER_CAR:
+                switch (Second->cont->k)
+                {
+                case transport::TRUCK:
+                    ofst << endl << "Passenger_car and Truck." << endl;
+                    break;
+                case transport::BUS:
+                    ofst << endl << "Passenger_car and Bus." << endl;
+                    break;
+                case  transport::PASSENGER_CAR:
+                    ofst << endl << "Passenger_car and Passenger_car." << endl;
+                    break;
+                default:
+                    ofst << endl << "Unknown type" << endl;
+                }
+                break;
+            default:
+                ofst << endl << "Unknown type" << endl;
+            }
+            Out(First->cont, ofst);
+            Out(Second->cont, ofst);
+            Second = Second->next;
+        }
+        First = First->next;
+        Second = First->next;
+    }
+}

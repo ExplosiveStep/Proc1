@@ -3,4 +3,19 @@ Container contains 3 elements.
 0: It is passenger car: max_speed = 150, engine = 200, fuel_tank = 50
 1: It is bus: capacity = 30, engine = 150, fuel_tank = 60
 2: It is truck: cargo = 1400, engine = 150, fuel_tank = 60
+
+
+MULTIMETHOD. 
+
+Passenger_car and Bus.
+It is passenger car: max_speed = 150, engine = 200, fuel_tank = 50
+It is bus: capacity = 30, engine = 150, fuel_tank = 60
+
+Passenger_car and Truck.
+It is passenger car: max_speed = 150, engine = 200, fuel_tank = 50
+It is truck: cargo = 1400, engine = 150, fuel_tank = 60
+
+Bus and Truck.
+It is bus: capacity = 30, engine = 150, fuel_tank = 60
+It is truck: cargo = 1400, engine = 150, fuel_tank = 60
 Empty container. 

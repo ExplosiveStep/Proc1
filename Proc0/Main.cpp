@@ -36,6 +36,8 @@ int main(int argc, char* argv[]) {
 	Sort(head);// Сортировка
 	Out(head, ofst);// Вывод параметров транспорта в файл
 	//Limited_out(head, ofst);// Вывод параметров только одного ТС
+	ofst << "\n\nMULTIMETHOD. " << endl;
+	MultiMethod(head, ofst);// Мультиметод
 	Clear(head);// Очистка контейнера
 	ofst << "Empty container. " << endl;
 	cout << "Stop" << endl;

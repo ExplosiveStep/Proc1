@@ -76,4 +76,6 @@ void Sort(container* head);
 
 void Limited_out(container* head, ofstream& ofst);
 
+void MultiMethod(container* head, ofstream& ofst);
+
 #endif
