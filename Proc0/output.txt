@@ -1,7 +1,6 @@
 Filled container. 
-Container contains 4 elements.
-0: It is passenger car: max_speed = 240, engine = 350, fuel_tank = 50
-1: It is truck: cargo = 1300, engine = 300, fuel_tank = 50
-2: It is truck: cargo = 1400, engine = 200, fuel_tank = 30
-3: It is bus: capacity = 40, engine = 140, fuel_tank = 40
+Container contains 3 elements.
+0: It is passenger car: max_speed = 150, engine = 200, fuel_tank = 50
+1: It is bus: capacity = 30, engine = 150, fuel_tank = 60
+2: It is truck: cargo = 1400, engine = 150, fuel_tank = 60
 Empty container. 

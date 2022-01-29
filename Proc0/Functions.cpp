@@ -1,5 +1,6 @@
 #include "Header.h"
 #include <fstream>
+#include <string>
 
 #define KEY 0// Выбор ТС для лимитированного вывыда [0..2]
 
@@ -64,6 +65,10 @@ void In(container* head, container* tail, ifstream& ifst) {
                 tail = temp;
                 Len++;
             }
+            else
+            {
+                delete temp;
+            }
             break;
         }
         temp = head;
@@ -78,8 +83,21 @@ void In(container* head, container* tail, ifstream& ifst) {
 transport* In(ifstream& ifst)
 {
     transport* sp;
-    int k;
-    ifst >> k;
+
+    string str = "";
+    getline(ifst, str);
+
+    if ((str != "1") && (str != "2") && (str != "3")) {// Если символ не 1,2,3
+        if (ifst.peek() == EOF) {// Если конец файла
+            return 0;
+        }
+        else {
+            cout << "Input data is incomplete or incorrect!";
+            system("pause");
+            exit(1);
+        }
+    }
+    int k = atoi(str.c_str());
     switch (k) {
     case 1:
         sp = new transport;
@@ -98,6 +116,7 @@ transport* In(ifstream& ifst)
         return sp;
     default:
         cout << "Incorrect transport!" << endl;
+        system("pause");
         exit(1);
     }
 }
@@ -105,19 +124,124 @@ transport* In(ifstream& ifst)
 // Ввод параметров грузовика из файла
 void In(truck& t, ifstream& ifst)
 {
-    ifst >> t.cargo >> t.engine >> t.fuel_tank;
+    string str = "";
+    string numbers = "0123456789";
+    int flag = 0;// Вспомогательная переменная/количество циклов
+    while (flag != 3)
+    {
+        getline(ifst, str);
+
+        if (str == "") {// Если пустая строка
+            cout << "Input data is incomplete!";
+            system("pause");
+            exit(1);
+        }
+        if (str[0] == '0') {// Если строка начинается с символа '0'
+            cout << "Input data is incorrect!";
+            system("pause");
+            exit(1);
+        }
+        for (int i = 0; i < str.length(); i++) {// Если в строке есть символы помимо цифр
+            if (numbers.find(str[i]) == -1) {
+                cout << "Input data is incorrect!";
+                system("pause");
+                exit(1);
+            }
+        }
+        switch (flag)
+        {
+        case 0:
+            t.cargo = atoi(str.c_str());
+            break;
+        case 1:
+            t.engine = atoi(str.c_str());
+            break;
+        case 2:
+            t.fuel_tank = atoi(str.c_str());
+            break;
+        }
+        flag++;
+    }
 }
 
 // Ввод параметров автобуса из файла
 void In(bus& b, ifstream& ifst) {
 
-    ifst >> b.capacity >> b.engine >> b.fuel_tank;
+    string str = "";
+    string numbers = "0123456789";
+    int flag = 0;// Вспомогательная переменная/количество циклов
+    while (flag != 3)
+    {
+        getline(ifst, str);
+
+        if (str == "") {// Если пустая строка
+            cout << "Input data is incomplete!";
+            exit(1);
+        }
+        if (str[0] == '0') {// Если строка начинается с символа '0'
+            cout << "Input data is incorrect!";
+            exit(1);
+        }
+        for (int i = 0; i < str.length(); i++) {// Если в строке есть символы помимо цифр
+            if (numbers.find(str[i]) == -1) {
+                cout << "Input data is incorrect!";
+                exit(1);
+            }
+        }
+        switch (flag)
+        {
+        case 0:
+            b.capacity = atoi(str.c_str());
+            break;
+        case 1:
+            b.engine = atoi(str.c_str());
+            break;
+        case 2:
+            b.fuel_tank = atoi(str.c_str());
+            break;
+        }
+        flag++;
+    }
 }
 
 // Ввод параметров легкового автомобиля из файла
 void In(passenger_car& p, ifstream& ifst) {
 
-    ifst >> p.max_speed >> p.engine >> p.fuel_tank;
+    string str = "";
+    string numbers = "0123456789";
+    int flag = 0;// Вспомогательная переменная/количество циклов
+    while (flag != 3)
+    {
+        getline(ifst, str);
+
+        if (str == "") {// Если пустая строка
+            cout << "Input data is incomplete!";
+            exit(1);
+        }
+        if (str[0] == '0') {// Если строка начинается с символа '0'
+            cout << "Input data is incorrect!";
+            exit(1);
+        }
+        for (int i = 0; i < str.length(); i++) {// Если в строке есть символы помимо цифр
+            if (numbers.find(str[i]) == -1) {
+                cout << "Input data is incorrect!";
+                exit(1);
+            }
+        }
+        switch (flag)
+        {
+        case 0:
+            p.max_speed = atoi(str.c_str());
+            break;
+        case 1:
+            p.engine = atoi(str.c_str());
+            break;
+        case 2:
+            p.fuel_tank = atoi(str.c_str());
+            break;
+        }
+        flag++;
+    }
 }
 
 // Вывод параметров в файл
@@ -149,6 +273,7 @@ void Out(transport* s, ofstream& ofst) {
         break;
     default:
         cout << "Incorrect transport!" << endl;
+        system("pause");
         exit(1);
     }
 }
@@ -185,6 +310,7 @@ double gas_mil(transport* s)
         break;
     default:
         cout << "Incorrect transport!" << endl;
+        system("pause");
         exit(1);
     }
 }
